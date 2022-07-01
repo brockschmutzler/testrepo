@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>CALM</title>
+
+<!-- Metadata for this page -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="You'll find here the active learning materials created for calculus. These are currently used in MATH1110 at Cornell." name="description">
+<meta content="active learning, calculus, worksheet, class activities, Cornell, math" name="keywords" >
+
+<!-- Cascading stylesheets (css files) -->
+<link rel="stylesheet" type="text/css" href="activelearn_css.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+<!-- Cornell icons -->
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.cornell.edu/favicon.ico" /> 
+
+<!-- Script loads MathJax library that converts LaTeX code to html -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- Formatting and layout of webpage elements -->
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #fff;}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+/* Style buttons used to open and close collapsible content */
+.collapsible {
+  background-color: #f7f7f7;
+  color: #b31b1b;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: white;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #b31b1b;
+  color: #f7f7f7; 
+}
+
+/* Adds a plus icon to expand */
+.collapsible:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+/* Adds a minus icon to collapse */
+.active:after {
+  content: "\2212";
+  color: #f7f7f7;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Fixes the navigation bar to the top of small screens */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  background-color: white;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+/* The navigation menu */
+.nav {
+  float: center;
+  font-family: inherit;
+}
+
+/* Nav button */
+.nav .navbtn {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: black;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a Carnellian red background color to navigation links on hover */
+.navbar a:hover, .nav:hover .navbtn {
+  background-color: #b31b1b;
+}
+
+/* Style the nav content - positioned absolute */
+.nav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #b31b1b;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the nav links */
+.nav-content a {
+  float: center;
+  color: black;
+  text-decoration: none;
+}
+
+/* Add a light grey background color on hover */
+.nav-content a:hover {
+  background-color: #f7f7f7;
+  color: black;
+}
+
+/* When you move the mouse over the nav container, open the nav content */
+.nav:hover .nav-content {
+  display: block;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: center;
+  font-family: inherit;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: black;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #b31b1b;
+}
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #b31b1b;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: center;
+  color: black;
+  text-decoration: none;
+}
+
+/* Add a light grey background color on hover */
+.subnav-content a:hover {
+  background-color: #f7f7f7;
+  color: black;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+/* Defines a 10 pixel margin at top of an element 
+(e.g., <a href="#link", class="top-margin-10px"> link </a> ) */
+.top-margin-10px {
+     margin-top: 10px;
+}
+
+/* Defines a 20 pixel margin to the left of an element 
+(e.g., <a href="#link", class="left-margin-20px"> link </a> ) */
+.left-margin-20px {
+     margin-left: 20px;
+}
+
+/* Defines a 33 pixel margin to the left of an element 
+(e.g., <a href="#link", class="left-margin-20px"> link </a> ) */
+.left-margin-33px {
+     margin-left: 33px;
+}
+
+</style>
+
+</head> <!-- end of the head section -->
+
+<!-- start of the body section -->
+<body class="activelearn-cornell">
+
+  <!-- Sidebar navigation menu - (hidden on small screens) -->
+<div class="w3-sidebar bg-light w3-bar-block w3-small w3-hide-small w3-center">
+
+  <!-- Avatar image in top left corner -->
+  <a href="https://cornell.edu/" class="w3-bar-item w3-button w3-padding activelearn-hover-cornell">
+  <img src="./images/cornell-seal-simple-b31b1b.svg" alt="Cornell University" style="width: 100%">
+  </a>
+
+  <!-- Cornell Department of Mathematics logo/link -->
+  <a href="https://math.cornell.edu/" class="w3-bar-item w3-button w3-padding-small activelearn-hover-cornell">
+    <img src="./images/department-of-mathematics.png" alt="Cornell Math Dept" style="width: 100%">
+  </a>
+
+  <!-- Navigation menu with links to other CALM courses -->
+  <div class="nav top-margin-10px left-margin-20px">
+    <button class="navbtn w3-padding-small"> Courses <i class="fa fa-caret-down"></i></button>
+      <div class="nav-content">
+        <!-- Link to MATH 1106 - Modeling with Calculus -->
+        <a href="./protected/1106.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 1106
+        </a>
+        <!-- Link to MATH 1110 - Calculus I -->
+        <a href="./protected/1110.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 1110
+        </a>
+        <!-- Link to MATH 1120/1910 - Calculus II -->
+        <a href="./protected/1120-1910.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 1120/1910
+        </a>
+        <!-- Link to MATH 1300 - Mathematical Explorations -->
+        <a href="./protected/1300.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 1300
+        </a>
+        <!-- Link to MATH 2130/1920 - Calculus III -->
+        <a href="./protected/2130-1920.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 2130/1920
+        </a>
+        <!-- Link to MATH 2210 - Linear Algebra -->
+        <a href="./protected/2210.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 2210
+        </a>
+        <!-- Link to MATH 3040 - Prove It! -->
+        <a href="./protected/3040.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 3040
+        </a>
+        <!-- Link to MATH 4310 - Linear Algebra -->
+        <a href="./protected/4310.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 4310
+        </a>
+        <!-- Link to MATH 4520 - Classical geometries and modern applications -->
+        <a href="./protected/4520.html" class="w3-bar-item w3-button w3-padding-small">
+          MATH 4520
+        </a>
+        <!-- Link to CALM website template -->
+        <a href="./protected/CALM-template.html" class="w3-bar-item w3-button w3-padding-small">
+          CALM Template
+        </a>
+      </div> <!-- end of nav-content -->
+  </div> <!-- end of nav menu with links to other CALM courses -->
+
+  <!-- Navigation menu to sections on this page -->
+  <div class="nav left-margin-33px">
+    <button class="navbtn w3-padding"> <i class="fa fa-bars w3-xlarge"></i> </button>
+      <div class="nav-content">
+          <!-- Links to sections on this page -->
+          <a href="#what-is-active-learning" class="w3-bar-item w3-button"> What is Active Learning? </a>
+          <a href="#courses" class="w3-bar-item w3-button"> Course Materials </a>
+          <a href="#contact" class="w3-bar-item w3-button"> Meet Our Team </a>
+          <a href="#publications" class="w3-bar-item w3-button"> Publications </a>
+      </div> <!-- end of nav-content container -->
+  </div> <!-- end of nav container -->
+
+</div> <!-- end Sidebar on large screens (hidden on small screens) -->
+
+<!-- Navbar on small screens (hidden on medium and large screens) -->
+<div class="navbar navbar-expand-md bg-light w3-top w3-hide-medium w3-hide-large">
+  <!-- Avatar image in top left corner -->
+  <a class="w3-bar-item w3-button w3-padding activelearn-hover-cornell" href="https://cornell.edu">
+    <img src="./images/cornell-seal-simple-b31b1b.svg" alt="Cornell University" style="width: 80px">
+  </a>
+  <!-- Cornell Department of Mathematics logo/link -->
+  <a href="https://math.cornell.edu/" class="w3-bar-item w3-button w3-padding activelearn-hover-cornell">
+    <img src="./images/department-of-mathematics.png" alt="Cornell Math Dept" style="width: 140px">
+  </a>
+  <!-- Bar icon dropdown hover menu for navigation -->
+  <div class="w3-bar-item w3-dropdown-hover w3-padding" id="small-screen-dropdown">
+    <button class="w3-button">
+      <i class="fa fa-bars w3-xlarge" style="color: black"></i> <!-- adds a three-bar icon -->
+    </button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4" style="right: 0">
+
+          <!-- Links to sections on this page -->
+          <a href="#what-is-active-learning" class="w3-bar-item w3-button w3-mobile"> What is Active Learning? </a>
+          <a href="#courses" class="w3-bar-item w3-button w3-mobile"> Course Materials </a>
+          <a href="#contact" class="w3-bar-item w3-button w3-mobile"> Meet Our Team </a>
+          <a href="#publications" class="w3-bar-item w3-button w3-mobile"> Publications </a>
+
+          <!-- Subnavigation menu with links to other CALM courses -->
+          <div class="subnav top-margin-10px">
+            <button class="subnavbtn w3-mobile"> Courses <i class="fa fa-caret-down"></i></button>
+              <div class="subnav-content">
+                <!-- Link to MATH 1106 - Modeling with Calculus -->
+                <a href="./protected/1106.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 1106
+                </a>
+                <!-- Link to MATH 1110 - Calculus I -->
+                <a href="./protected/1110.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 1110
+                </a>
+                <!-- Link to MATH 1120/1910 - Calculus II -->
+                <a href="./protected/1120-1910.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 1120/1910
+                </a>
+                <!-- Link to MATH 1300 - Mathematical Explorations -->
+                <a href="./protected/1300.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 1300
+                </a>
+                <!-- Link to MATH 2130/1920 - Calculus III -->
+                <a href="./protected/2130-1920.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 2130/1920
+                </a>
+                <!-- Link to MATH 2210 - Linear Algebra -->
+                <a href="./protected/2210.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 2210
+                </a>
+                <!-- Link to MATH 3040 - Prove It! -->
+                <a href="./protected/3040.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 3040
+                </a>
+                <!-- Link to MATH 4310 - Linear Algebra -->
+                <a href="./protected/4310.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 4310
+                </a>
+                <!-- Link to MATH 4520 - Classical geometries and modern applications -->
+                <a href="./protected/4520.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  MATH 4520
+                </a>
+                <!-- Link to CALM website template -->
+                <a href="./protected/CALM-template.html" class="w3-bar-item w3-button w3-padding-small w3-mobile">
+                  CALM Template
+                </a>
+              </div> <!-- end of subnav-content -->
+          </div> <!-- end of subnav container with links to other CALM courses -->
+
+        </div> <!-- end of w3-dropdown-hover -->
+  </div> <!-- end of w3-dropdown-content container -->
+</div> <!-- end of navbar on small screens (hidden on medium and large screens) -->
+
+<!-- Page Content -->
+<main> <!-- Need <main> tag for accessibility -->
+<div class="w3-padding-large" id="main">
+
+  <!-- header on large screens -->
+  <header class="w3-container w3-padding w3-center w3-hide-small activelearn-cornell" id="home">
+    <img src="./images/CALM-logo.png" alt="CALM Logo" style="width: 150px">
+    <h1 class="w3-padding"> Cornell Active Learning in Mathematics </h1>
+  </header>
+  <!-- header on small screens -->
+  <header class="w3-container w3-padding-32 w3-center w3-hide-large w3-hide-medium activelearn-cornell" id="home">
+    <br> </br> <br> </br> <!-- Creates space so navbar does not hide the header below -->
+    <img src="./images/CALM-logo.png" alt="CALM Logo" style="width: 150px">
+    <h1 class="w3-padding"> Cornell Active Learning in Mathematics </h1>
+  </header>
+
+  <!-- Quick description of active learning and links to other websites -->
+  <button type="button" class="collapsible"> What is Active Learning? </button>
+  <div class="content w3-content w3-justify w3-text-black w3-padding-64" id="what-is-active-learning">
+
+    <p class="w3-text-black">
+      Active learning uses student-centered strategies that engage students 
+      in solving problems, thinking and writing about what they are learning, 
+      and sharing their ideas with peers and instructors. As 
+       <a href="https://files.eric.ed.gov/fulltext/ED336049.pdf" style="color:#006699" target="_blank" title="Link to early report on active learning">
+        Bonwell and Eison (1991)
+       </a>
+      puts it, 
+        <em>"students must do more than just listen [to a lecture]: They must read,
+          write, discuss, or be engaged in solving problems. Most important,
+          to be actively involved, students must engage in such higher-order
+          thinking tasks as analysis, synthesis, and evaluation."
+        </em>
+    </p>
+    
+    <p class="w3-text-black"> 
+      Here are some useful resources for active learning strategies:
+        <ul class="w3-section cornell-text-carnellian"  title="Links to recent active learning resources">
+          <li>
+            <a href="https://teaching.cornell.edu/fall-2020-course-preparation/active-collaborative-learning/active-learning" style="color:#006699" target="_blank">
+              Active Learning (Cornell University, CTI)
+            </a>
+          </li>
+          <li>
+            <a href="./active-learning-resources/rnoti-p124.pdf" style="color:#006699" target="_blank">
+              What Does Active Learning Mean for Mathematicians?  (Notices of the AMS, 2017)
+            </a>
+          </li>
+          <li>
+            <a href="https://iola.math.vt.edu/" style="color:#006699" target="_blank">
+              Inquiry-Oriented Linear Algebra (University of Vermont)
+            </a>
+          </li>
+          <li>
+            <a href="https://iode.wordpress.ncsu.edu/" style="color:#006699" target="_blank">
+              Inquiry-Oriented Differential Equations (North Carolina State University)
+            </a>
+          </li>
+          <li>
+            <a href="./active-learning-resources/InstructPracGuide_web.pdf" style="color:#006699" style="color:#006699" target="_blank"> 
+              MAA Instructional Practice Guide (2018)
+            </a>
+          </li>
+          <li>
+            <a href="./active-learning-resources/active_learning_Deslauriers_et_al.pdf" style="color:#006699" target="_blank">
+              Actual Learning Versus Perception of Learning (PNAS, 2019)
+            </a>
+          </li>
+          <li>
+            <a href="./active-learning-resources/Some_Active_Learning_Strategies.pdf" style="color:#006699" target="_blank">
+              Some Active Learning Strategies
+            </a>
+          </li>
+        </ul> <!-- End of list with links to active learning resources-->
+    </p>
+
+    <p class="w3-text-black">
+      <a href="https://news.cornell.edu/stories/2020/08/active-learning-helps-math-department-boost-academic-success" style="color:#006699" target="_blank">This article</a> describes the transformation to active learning in the Department of Mathematics at Cornell University, as part of a university-wide effort called the
+        <a href="https://provost.cornell.edu/leadership/vp-academic-innovation/active-learning-initiative/" style="color:#006699" target="_blank"> 
+          Active Learning Initiative.
+        </a>
+    </p>
+  </div> <!-- end of What is Active Learning? section -->
+
+  <!-- Course Materials -->
+  <button type="button" class="collapsible">Course Materials</button>
+  <div class="content w3-content w3-justify w3-text-black w3-padding-64" id="courses"> 
+    <p class="w3-text-black">
+      Links to pages of course materials are below.  Materials for MATH 1106, 1110, 1300, and 3040 were developed as part of a 2017&ndash;20 Active Learning project and for MATH 2210 and 4310 as part of a 2020&ndash;23 project.   The COVID pandemic and the resulting pivot to on-line teaching spurred the creation of similar new materials for 1120/1910 and 2130/1920.  We archive them here for reuse.  The development of MATH 4520 is led by Kathryn Mann as part of an NSF-funded project.
+    </p>
+    <ul class="w3-section cornell-text-carnellian"> <!-- Start of list with links to CALM courses -->
+      <li> 
+        <a href="./protected/1106.html" style="color:#006699">
+          1106 &ndash; Modeling with Calculus for the Life Sciences
+        </a>
+      </li>
+      <li>
+        <a href="./protected/1110.html" style="color:#006699">
+          1110 &ndash; Calculus I
+        </a>
+      </li>
+      <li> 
+        <a href="./protected/1120-1910.html" style="color:#006699">
+          1120/1910 &ndash; Calculus II
+        </a> 
+      </li>
+      <li> 
+        <a href="./protected/2130-1920.html" style="color:#006699">
+          2130/1920 &ndash; Calculus III
+        </a> 
+      </li>
+      <li>
+        <a href="./protected/1300.html" style="color:#006699">
+          1300 &ndash; Mathematical Explorations
+        </a>
+      </li>
+      <li> 
+        <a href="./protected/2210.html" style="color:#006699">
+          2210 &ndash; Linear Algebra 
+        </a>
+      </li>
+      <li> 
+        <a href="./protected/3040.html" style="color:#006699">
+          3040 &ndash; Prove It!
+        </a> 
+      </li>
+      <li> 
+        <a href="./protected/4310.html" style="color:#006699">
+          4310 &ndash; Linear Algebra (coming soon!)
+        </a>
+      </li>
+      <li> 
+        <a href="./protected/4520.html" style="color:#006699">
+          4520 &ndash; Classical Geometries and Modern Applications (coming in Summer 2023) 
+        </a>
+      </li>
+    </ul>
+  </div> <!-- end of Course Materials section -->
+    
+  <!-- Information about the CALM team -->
+  <button type="button" class="collapsible">Meet Our Team</button>
+  <div class="content w3-padding-64 w3-content w3-text-black" id="contact">
+    <p>
+      The Cornell Mathematics Department received 
+        <a href="https://provost.cornell.edu/leadership/vp-academic-innovation/active-learning-initiative/" style="color:#006699" target="_blank"> 
+          Active Learning Initiative
+        </a> 
+      grants in 2017 and 2020. One of the goals of these grants 
+      was to redesign courses and develop materials so that courses 
+      can be taught using active learning in a sustainable way. 
+      We are happy to answer any questions about this project, so feel free to contact us! 
+    </p>
+
+    <!-- Start of Bootstrap grid with CALM team leaders -->
+    <div class="container-fluid">
+
+      <div class="row"> <!-- start of first row -->
+        <div class="col"> <!-- start of first column -->
+
+          <center>
+            <img src="./images/steve-bennoun-photo.jpg" alt="Picture" style="width:64%">
+            <p>
+              <a href="https://www.psych.ucla.edu/faculty-page/bennoun" style="color:#006699"> 
+                Steve Bennoun
+              </a><br>
+              Active Learning Lecturer<br>
+              2017-2020<br>
+            </p>
+          </center>
+        </div> <!-- end of first column -->
+
+        <div class="col"> <!-- start of second column -->
+          <center>
+            <img src="./images/tara-holm-photo.jpg" alt="Picture" style="width:100%">
+            <p>
+              <a href="https://math.cornell.edu/tara-holm" style="color:#006699"> 
+                Tara Holm</a>
+              <br>
+              Active Learning Project PI<br>
+              2017-2020<br>
+            </p>
+          </center>
+        </div> <!-- end of second column -->
+
+        <div class="col"> <!-- start of third column -->
+          <center>
+            <img src="./images/marie-macdonald-photo.jpg" alt="Marie's picture'" style="width:100%">
+            <p>
+              <a href="https://math.cornell.edu/marie-macdonald" style="color:#006699"> 
+                Marie MacDonald
+              </a><br>
+              Active Learning Lecturer<br>
+              2020-2022<br>
+            </p>
+          </center>
+        </div><!-- end of third column -->
+
+        <div class="col"> <!-- start of fourth column -->
+          <center>
+            <img src="./images/tim-riley-photo.jpg" alt="Tim's picture'" style="width:100%">
+            <p>
+              <a href="https://math.cornell.edu/tim-riley" style="color:#006699"> 
+                Timothy Riley
+              </a><br>
+              Active Learning Project PI<br>
+              2020-2023<br>
+            </p>
+          </center>
+        </div> <!-- end of fourth column -->
+      </div> <!-- end of first row -->
+    </div> <!-- end of Bootstrap grid with CALM team leaders -->
+
+    <h4 class="w3-section"> Collaborators and Consultants </h4>
+      <ul class="cornell-text-carnellian">
+        <li> 
+          <a href="https://www.nanehapkarian.com/" style="color:#006699" target="_blank"> 
+            Naneh Apkarian, Arizona State University
+          </a> 
+        </li>
+        <li> 
+          <a href="https://teaching.cornell.edu/person/carolyn-aslan" style="color:#006699" target="_blank"> 
+            Carolyn Aslan, Associate Director of the Active Learning Initiative, Cornell Center for Teching Innovation
+          </a> 
+        </li>
+        <li> Amy Cardace, Cornell Center for Teaching Innovation </li>
+        <li> Matthew Eichhorn </li>
+        <li> Balazs Elek </li>
+        <li> Hannah Keese </li>
+        <li> 
+          <a href="https://physics.cornell.edu/peter-lepage" style="color:#006699" target="_blank"> 
+            Peter Lepage, Director of the Active Learning Initiative, Cornell Physics Department
+          </a>  
+        </li>
+        <li> 
+          <a href="https://math.cornell.edu/kathryn-mann" style="color:#006699" target="_blank"> 
+            Kathryn Mann
+          </a
+        </li>
+        <li> Katherine J. Meyer </li>
+        <li> 
+          <a href="https://math.cornell.edu/ravi--ramakrishna" style="color:#006699" target="_blank"> 
+            Ravi Ramakrishna
+          </a> 
+        </li>
+        <li> 
+          <a href="https://crmse.sdsu.edu/members/rasmussen" style="color:#006699" target="_blank"> 
+            Chris Rasmussen, San Diego State University
+          </a> 
+        </li>
+        <li> Lisa Sanfilippo, Cornell Center for Teaching Innovation </li>
+        <li> Brock Schmutzler </li>
+         <li> 
+          <a href="https://math.cornell.edu/reyer-sjamaar" style="color:#006699" target="_blank"> 
+            Reyer Sjamaar
+          </a> 
+        </li>
+        <li> 
+          <a href="https://mthomas.net" style="color:#006699" target="_blank"> 
+            Matt Thomas, Cornell Statistical Consulting Unit
+          </a> 
+        </li>
+        <li> Nate Veldt </li>
+        <li> Prairie Wentworth-Nice </li>
+        <li> 
+          <a href="https://math.cornell.edu/inna-zakharevich" style="color:#006699" target="_blank"> 
+            Inna Zakharevich
+          </a> 
+        </li>
+      </ul>
+  </div> <!-- end of Meet Our Team section -->
+
+  <!-- Publications -->
+  <button type="button" class="collapsible">Publications</button>
+  <div class="content w3-content w3-justify w3-text-black w3-padding-64" id="publications">
+
+    <p> The following list contains publications by CALM team members. </p>
+
+    <ul class="cornell-text-carnellian">
+        <li>
+          <a href="https://doi.org/10.1080/10511970.2020.1746453" style="color:#006699" target="_blank"> 
+            Establishing Consistent Active Learning in a Calculus I Course (Steve Bennoun & Tara Holm, PRIMUS, 2020)
+          </a>
+        </li>
+        <li>
+          <a href="https://www.tandfonline.com/doi/abs/10.1080/10511970.2020.1827104?journalCode=upri20" style="color:#006699" target="_blank"> 
+            Transforming a Calculus for Life Sciences Course: Moving From Procedural Calculus to Studying Dynamical Systems and Bifurcation Theory (Steve Bennoun, PRIMUS, 2020)
+          </a>
+        </li>
+      </ul>
+  </div> <!-- end of Publications section -->
+
+<!-- Script to expand/contract collapsible content -->
+<script language="JavaScript">
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<br> </br>
+
+<center>
+  <p class="w2-text-black w3-medium">
+    These pages were created as part of the 
+      <a href="https://provost.cornell.edu/leadership/vp-academic-innovation/active-learning-initiative/" target="_blank" class="cornell-text-carnellian"> 
+        Cornell Active Learning Initiative
+      </a>
+  </p>
+  <p class="w2-text-black w3-medium">
+    <i> Last Updated: 
+      <script language="JavaScript">document.write(document.lastModified);</script>
+    </i>
+  </p>
+  <p class="w3-medium">
+    Powered by 
+      <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="cornell-text-carnellian"> 
+        w3.css 
+      </a>
+  </p>
+</center>
+
+</div> <!-- end of webpage content -->
+</main>
+
+</body>
+</html>
